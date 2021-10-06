@@ -5,5 +5,5 @@
 - Clean Architecture
 
 # 적용해 보고 싶은 것
-- unit-test []
-- 
+- [ ] unit test
+- [ ] 
