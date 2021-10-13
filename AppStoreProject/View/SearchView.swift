@@ -20,6 +20,7 @@ class SearchView: BaseView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).then {
         $0.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: "SearchResultCollectionViewCell")
         $0.isHidden = true
+
     }
     
     
@@ -41,6 +42,7 @@ class SearchView: BaseView {
     }
     
     override func configureUI() {
+
         self.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.top.edges.left.bottom.right.equalTo(self)
