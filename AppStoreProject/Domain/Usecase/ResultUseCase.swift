@@ -8,15 +8,15 @@
 import Foundation
 import RxSwift
 
-class ResultUsecase {
+final class ResultUsecase {
     
-    private let searchRepository: SearchRepository
+    private let searchRepository: Network
     
-    init(searchRepository: SearchRepository) {
+    init(searchRepository: Network) {
         self.searchRepository = searchRepository
     }
     
-    func fetchSearchResult(keyword: String) -> Observable<ResultResponse> {
+    func fetchSearchResult(keyword: String) -> Observable<AppStoreSearchResultModel> {
         
         return searchRepository.fetchSearchResult(keyword: keyword)
     }

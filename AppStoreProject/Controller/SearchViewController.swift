@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import RxSwift
 
-class SearchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
     
-    let selfView = SearchView()
+    private let selfView = SearchView()
     
-    let searchViewModel: SearchViewModel
+    private let searchViewModel: SearchViewModel
     
     
     init(searchViewModel : SearchViewModel) {

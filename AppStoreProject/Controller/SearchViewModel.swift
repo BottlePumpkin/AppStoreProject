@@ -15,7 +15,7 @@ class SearchViewModel {
     
     var loading: BehaviorSubject<Bool> = .init(value: false)
     var errorMessage: BehaviorSubject<String?> = .init(value: nil)
-    var results: BehaviorSubject<ResultResponse> = .init(value: ResultResponse(resultCount: 0, results: []))
+    var results: BehaviorSubject<AppStoreSearchResultModel> = .init(value: AppStoreSearchResultModel(resultCount: 0, results: []))
     var disposeBag = DisposeBag()
     
     
