@@ -8,17 +8,17 @@
 import Foundation
 import RxSwift
 
-final class ResultUsecase {
+final class AppStoreResultUseCase {
     
-    private let searchRepository: Network
+    private let network: Network
     
-    init(searchRepository: Network) {
-        self.searchRepository = searchRepository
+    init(network: Network) {
+        self.network = network
     }
     
     func fetchSearchResult(keyword: String) -> Observable<AppStoreSearchResultModel> {
         
-        return searchRepository.fetchSearchResult(keyword: keyword)
+        return network.fetchSearchResult(keyword: keyword)
     }
     
     

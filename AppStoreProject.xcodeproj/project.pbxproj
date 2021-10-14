@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAA7DB8D2716ED5B008738C1 /* SearchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */; };
+		DAA7DB8F2716ED75008738C1 /* SearchList+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */; };
 		DAC1B528270D1C6800E63C8C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */; };
 		DAC1B52B270D2D1D00E63C8C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1B52A270D2D1D00E63C8C /* SearchTableViewCell.swift */; };
 		DAC1B52D270D2D2D00E63C8C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1B52C270D2D2D00E63C8C /* BaseTableViewCell.swift */; };
@@ -23,7 +25,7 @@
 		DAE1BAAD270AD1ED009444AC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1BAAC270AD1ED009444AC /* MainCoordinator.swift */; };
 		DAE1BAAF270AD1F6009444AC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1BAAE270AD1F6009444AC /* Coordinator.swift */; };
 		DAE1BAB1270AD289009444AC /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1BAB0270AD289009444AC /* AppDependency.swift */; };
-		DAF8C8E6270BCD6800982A62 /* ResultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8C8E5270BCD6800982A62 /* ResultUseCase.swift */; };
+		DAF8C8E6270BCD6800982A62 /* AppStoreResultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8C8E5270BCD6800982A62 /* AppStoreResultUseCase.swift */; };
 		DAF8C8EA270BCDB900982A62 /* AppStoreSearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8C8E9270BCDB900982A62 /* AppStoreSearchResultModel.swift */; };
 		DAF8C8EC270BCE4200982A62 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8C8EB270BCE4200982A62 /* Network.swift */; };
 		DAF8C8F1270BCE9F00982A62 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DAF8C8F0270BCE9F00982A62 /* RxCocoa */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailController.swift; sourceTree = "<group>"; };
+		DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchList+TableView.swift"; sourceTree = "<group>"; };
 		DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DAC1B52A270D2D1D00E63C8C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		DAC1B52C270D2D2D00E63C8C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		DAE1BAAC270AD1ED009444AC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DAE1BAAE270AD1F6009444AC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DAE1BAB0270AD289009444AC /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
-		DAF8C8E5270BCD6800982A62 /* ResultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUseCase.swift; sourceTree = "<group>"; };
+		DAF8C8E5270BCD6800982A62 /* AppStoreResultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreResultUseCase.swift; sourceTree = "<group>"; };
 		DAF8C8E9270BCDB900982A62 /* AppStoreSearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreSearchResultModel.swift; sourceTree = "<group>"; };
 		DAF8C8EB270BCE4200982A62 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,7 +87,7 @@
 		DAC1B526270D1B3400E63C8C /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
-				DAF8C8E5270BCD6800982A62 /* ResultUseCase.swift */,
+				DAF8C8E5270BCD6800982A62 /* AppStoreResultUseCase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -167,6 +171,8 @@
 				DAE1BAA4270ACF80009444AC /* SearchViewController.swift */,
 				DAE1BAA6270ACFA7009444AC /* BaseViewController.swift */,
 				DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */,
+				DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */,
+				DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,19 +287,21 @@
 				DAC1B52D270D2D2D00E63C8C /* BaseTableViewCell.swift in Sources */,
 				DAE1BAAF270AD1F6009444AC /* Coordinator.swift in Sources */,
 				DAE1BAA5270ACF80009444AC /* SearchViewController.swift in Sources */,
-				DAF8C8E6270BCD6800982A62 /* ResultUseCase.swift in Sources */,
+				DAF8C8E6270BCD6800982A62 /* AppStoreResultUseCase.swift in Sources */,
 				DAF8C8EC270BCE4200982A62 /* Network.swift in Sources */,
 				DAC1B52F270D400800E63C8C /* SearchResultCollectionViewCell.swift in Sources */,
 				DAE1BAAD270AD1ED009444AC /* MainCoordinator.swift in Sources */,
 				DAC1B52B270D2D1D00E63C8C /* SearchTableViewCell.swift in Sources */,
 				DAE1BAA7270ACFA7009444AC /* BaseViewController.swift in Sources */,
 				DAE1BAA9270AD037009444AC /* BaseView.swift in Sources */,
+				DAA7DB8D2716ED5B008738C1 /* SearchDetailController.swift in Sources */,
 				DAC1B531270D401400E63C8C /* BaseCollectionViewCell.swift in Sources */,
 				DAC1B528270D1C6800E63C8C /* SearchViewModel.swift in Sources */,
 				DAE1BA89270ACCBA009444AC /* AppDelegate.swift in Sources */,
 				DAE1BAB1270AD289009444AC /* AppDependency.swift in Sources */,
 				DAE1BAAB270AD03F009444AC /* SearchView.swift in Sources */,
 				DAE1BA8B270ACCBA009444AC /* SceneDelegate.swift in Sources */,
+				DAA7DB8F2716ED75008738C1 /* SearchList+TableView.swift in Sources */,
 				DAF8C8EA270BCDB900982A62 /* AppStoreSearchResultModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

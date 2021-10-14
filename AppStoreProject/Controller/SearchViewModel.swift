@@ -16,21 +16,24 @@ class SearchViewModel {
     var loading: BehaviorSubject<Bool> = .init(value: false)
     var errorMessage: BehaviorSubject<String?> = .init(value: nil)
     var results: BehaviorSubject<AppStoreSearchResultModel> = .init(value: AppStoreSearchResultModel(resultCount: 0, results: []))
+    var currentSearchResult: [SearchResultModel] = []
+    
     var disposeBag = DisposeBag()
     
     
-    let usecase: ResultUsecase
+    let usecase: AppStoreResultUseCase
     
-    init(usecase: ResultUsecase) {
+    init(usecase: AppStoreResultUseCase) {
         self.usecase = usecase
     }
     
     
-    func viewDidLoad() {
+    func searchQueryChanged(query : String) {
         loading.onNext(true)
-        usecase.fetchSearchResult(keyword: "카카").asObservable().subscribe(onNext: { results in
+        usecase.fetchSearchResult(keyword: query).subscribe(onNext: { results in
             self.loading.onNext(false)
             self.results.onNext(results)
+            self.currentSearchResult = results.results ?? []
         }).disposed(by: disposeBag)
     }
     

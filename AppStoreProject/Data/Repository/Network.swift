@@ -8,6 +8,7 @@
 
 import RxSwift
 import UIKit
+import RxCocoa
 
 final class Network {
     private let urlSession = URLSession.shared
@@ -18,10 +19,9 @@ final class Network {
         var urlComponents = URLComponents(string: "https://itunes.apple.com/search")
        urlComponents?.query = "term=\(keyword)&country=kr&entity=software"
            
-       let url = urlComponents?.url!
+       let url = urlComponents?.url ?? URL(fileURLWithPath: "")
         
-        
-        return urlSession.rx.data(request: URLRequest(url: url!)).map {
+        return urlSession.rx.data(request: URLRequest(url: url)).map {
             data -> AppStoreSearchResultModel in
             return try self.decoder.decode(AppStoreSearchResultModel.self, from: data)
         }

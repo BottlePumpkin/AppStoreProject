@@ -17,8 +17,8 @@ struct AppDependency {
 extension AppDependency {
     
     static func resolve() -> AppDependency {
-        let searchRepository = Network()
-        let useCase = ResultUsecase(searchRepository: searchRepository)
+        let network = Network()
+        let useCase = AppStoreResultUseCase(network: network)
         let viewModel = SearchViewModel(usecase: useCase)
         let searchController = SearchViewController(searchViewModel: viewModel)
         
