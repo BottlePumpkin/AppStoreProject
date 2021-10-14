@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA059D472717B70E00210EB5 /* SearchList+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */; };
+		DA059D492717C43800210EB5 /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */; };
+		DA059D4B2717C50800210EB5 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D4A2717C50800210EB5 /* SearchResultTableViewCell.swift */; };
 		DAA7DB8D2716ED5B008738C1 /* SearchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */; };
 		DAA7DB8F2716ED75008738C1 /* SearchList+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */; };
 		DAC1B528270D1C6800E63C8C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchList+CollectionView.swift"; sourceTree = "<group>"; };
+		DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
+		DA059D4A2717C50800210EB5 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailController.swift; sourceTree = "<group>"; };
 		DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchList+TableView.swift"; sourceTree = "<group>"; };
 		DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 				DAE1BAAA270AD03F009444AC /* SearchView.swift */,
 				DAC1B52A270D2D1D00E63C8C /* SearchTableViewCell.swift */,
 				DAC1B52E270D400700E63C8C /* SearchResultCollectionViewCell.swift */,
+				DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */,
+				DA059D4A2717C50800210EB5 /* SearchResultTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				DAC1B527270D1C6800E63C8C /* SearchViewModel.swift */,
 				DAA7DB8C2716ED5B008738C1 /* SearchDetailController.swift */,
 				DAA7DB8E2716ED75008738C1 /* SearchList+TableView.swift */,
+				DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,10 +303,13 @@
 				DAC1B52B270D2D1D00E63C8C /* SearchTableViewCell.swift in Sources */,
 				DAE1BAA7270ACFA7009444AC /* BaseViewController.swift in Sources */,
 				DAE1BAA9270AD037009444AC /* BaseView.swift in Sources */,
+				DA059D492717C43800210EB5 /* SearchResultHeaderView.swift in Sources */,
 				DAA7DB8D2716ED5B008738C1 /* SearchDetailController.swift in Sources */,
+				DA059D4B2717C50800210EB5 /* SearchResultTableViewCell.swift in Sources */,
 				DAC1B531270D401400E63C8C /* BaseCollectionViewCell.swift in Sources */,
 				DAC1B528270D1C6800E63C8C /* SearchViewModel.swift in Sources */,
 				DAE1BA89270ACCBA009444AC /* AppDelegate.swift in Sources */,
+				DA059D472717B70E00210EB5 /* SearchList+CollectionView.swift in Sources */,
 				DAE1BAB1270AD289009444AC /* AppDependency.swift in Sources */,
 				DAE1BAAB270AD03F009444AC /* SearchView.swift in Sources */,
 				DAE1BA8B270ACCBA009444AC /* SceneDelegate.swift in Sources */,

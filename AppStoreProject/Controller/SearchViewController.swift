@@ -47,10 +47,7 @@ final class SearchViewController: BaseViewController {
         selfView.searchViewController.searchResultsUpdater = self
         selfView.tableView.delegate = self
         selfView.tableView.dataSource = self
-        selfView.collectionView.delegate = self
-        selfView.collectionView.dataSource = self
-        
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = selfView.searchViewController
         navigationItem.title = "검색"
@@ -112,19 +109,4 @@ extension SearchViewController: UISearchResultsUpdating {
 
 
 
-extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as! SearchResultCollectionViewCell
-        
-        return cell
-    }
-    
-    
-    
-    
-}
+
