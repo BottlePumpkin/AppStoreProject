@@ -10,20 +10,22 @@ import Foundation
 
 struct AppDependency {
     let mainCoordinator: MainCoordiantor
-    let searchViewModel: SearchViewModel
-    let resultUsecase: ResultUsecase
+
     
 }
 
 extension AppDependency {
     
     static func resolve() -> AppDependency {
-        let resultUseCase: ResultUsecase = .init(searchRepository: SearchRepositoryImpl.shared)
-        let searchViewModel: SearchViewModel = .init(usecase: resultUseCase)
+        let network = Network()
+        let useCase = AppStoreResultUseCase(network: network)
+        let viewModel = SearchViewModel(usecase: useCase)
+        let searchController = SearchViewController(searchViewModel: viewModel)
         
-        let mainCoordinator: MainCoordiantor = .init(searchViewModel: searchViewModel)
         
-        return .init(mainCoordinator: mainCoordinator, searchViewModel: searchViewModel, resultUsecase: resultUseCase)
+        let mainCoordinator: MainCoordiantor = .init(rootViewController: searchController)
+        
+        return .init(mainCoordinator: mainCoordinator)
     }
     
 }

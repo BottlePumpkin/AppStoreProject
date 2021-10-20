@@ -9,15 +9,15 @@ import UIKit
 
 class MainCoordiantor: Coordinator {
     var navigationController: UINavigationController?
-    let searchViewModel: SearchViewModel
+    let rootViewController: SearchViewController
     
     
-    init(searchViewModel : SearchViewModel) {
-        self.searchViewModel = searchViewModel
+    init(rootViewController: SearchViewController) {
+        self.rootViewController = rootViewController
     }
     
+    
     func start() {
-        let rootViewController = SearchViewController(searchViewModel: searchViewModel)
         navigationController?.setViewControllers([rootViewController], animated: false)
         navigationController?.setViewControllers([rootViewController],animated:false)
     }

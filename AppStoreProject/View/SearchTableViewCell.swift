@@ -8,6 +8,16 @@
 import UIKit
 
 class SearchTableViewCell: BaseTableViewCell {
+    
+    
+     let searchIconImageView = UIImageView().then {
+        $0.image = UIImage(systemName: "magnifyingglass")
+    }
+     let searchResultLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 18)
+        $0.text = "카카오뱅크"
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +33,20 @@ class SearchTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        addSubview(searchIconImageView)
+        searchIconImageView.snp.makeConstraints {
+            $0.top.equalTo(self).offset(20)
+        }
+        
+        addSubview(searchResultLabel)
+        searchResultLabel.snp.makeConstraints {
+            $0.top.equalTo(self).offset(20)
+            $0.left.equalTo(searchIconImageView.snp.right).offset(10)
+        }
+        
 
     }
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

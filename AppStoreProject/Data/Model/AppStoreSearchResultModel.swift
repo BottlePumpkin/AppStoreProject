@@ -9,9 +9,9 @@ import Foundation
 
 
 // MARK: - ResultResponse
-struct ResultResponse: Decodable {
+struct AppStoreSearchResultModel: Decodable {
     let resultCount: Int?
-    let results: [Result]?
+    let results: [SearchResultModel]?
     
     enum CodingKeys: String, CodingKey {
         case resultCount
@@ -20,7 +20,7 @@ struct ResultResponse: Decodable {
 }
 
 //MARK: - Result
-struct Result: Decodable {
+struct SearchResultModel: Decodable {
     let ipadScreenshotUrls: [String]?
     let appletvScreenshotUrls: [String]?
     let artworkUrl60: String?

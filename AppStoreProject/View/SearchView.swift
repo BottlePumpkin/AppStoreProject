@@ -10,18 +10,14 @@ import Then
 
 class SearchView: BaseView {
     
-    lazy var tableView = UITableView(frame: .zero, style: .insetGrouped).then {
+    lazy var tableView = UITableView(frame: .zero, style: .plain).then {
         $0.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
+        $0.register(SearchResultTableViewCell.self, forCellReuseIdentifier: "SearchResultTableViewCell")
         $0.backgroundColor = .white
+
     }
     
-    let layout = UICollectionViewLayout()
-    
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).then {
-        $0.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: "SearchResultCollectionViewCell")
-        $0.isHidden = true
-    }
-    
+
     
     let searchViewController = UISearchController(searchResultsController: nil).then {
         $0.searchBar.placeholder = "Enter"
@@ -41,15 +37,13 @@ class SearchView: BaseView {
     }
     
     override func configureUI() {
+
         self.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.top.edges.left.bottom.right.equalTo(self)
         }
         
-        self.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.top.edges.left.bottom.right.equalTo(self)
-        }
+
 
     }
     

@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 import RxSwift
 
-class SearchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
     
-    let selfView = SearchView()
+    private let selfView = SearchView()
     
     let searchViewModel: SearchViewModel
     
@@ -29,7 +29,7 @@ class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        searchViewModel.viewDidLoad()
+        
         
     }
     
@@ -47,10 +47,7 @@ class SearchViewController: BaseViewController {
         selfView.searchViewController.searchResultsUpdater = self
         selfView.tableView.delegate = self
         selfView.tableView.dataSource = self
-        selfView.collectionView.delegate = self
-        selfView.collectionView.dataSource = self
-        
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = selfView.searchViewController
         navigationItem.title = "검색"
@@ -63,6 +60,18 @@ class SearchViewController: BaseViewController {
             print("result : \(result)")
         }).disposed(by: disposeBag)
         
+        
+        selfView.searchViewController.searchBar.rx.text.debounce(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { text in
+            guard let text = text, !text.isEmpty else { return }
+            self.searchViewModel.searchQueryChanged(query: text)
+            
+        }).disposed(by: disposeBag)
+        
+        searchViewModel.results.subscribe(onNext: { _ in
+            DispatchQueue.main.async {
+                self.selfView.tableView.reloadData()
+            }
+        }).disposed(by: disposeBag)
         
         
     }
@@ -85,65 +94,19 @@ extension SearchViewController: UISearchResultsUpdating {
     
     func presentSearchController(_ searchController: UISearchController) {
         print("present")
-        selfView.tableView.isHidden = true
-        selfView.collectionView.isHidden = false
+//        selfView.tableView.isHidden = true
+//        selfView.collectionView.isHidden = false
     }
     
     func willDismissSearchController(_ searchController: UISearchController) {
         print("dismiss")
-        selfView.tableView.isHidden = false
-        selfView.collectionView.isHidden = true
+//        selfView.tableView.isHidden = false
+//        selfView.collectionView.isHidden = true
     }
     
     
 }
 
-extension SearchViewController : UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-        
-        cell.textLabel?.text = "카카오 뱅크"
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "최근 검색어"
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 100
-    }
-    
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.black
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 28)
-        header.textLabel?.frame = header.bounds
-        header.textLabel?.textAlignment = .left
-    }
-}
 
 
-extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as! SearchResultCollectionViewCell
-        
-        return cell
-    }
-    
-    
-    
-    
-}
+

@@ -9,11 +9,20 @@ import UIKit
 
 class SearchResultCollectionViewCell: BaseCollectionViewCell {
     
+    let screenShotImageView = UIImageView().then {
+        $0.image = UIImage(named: "kakaotalk-icon")
+    
+    }
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .blue
-        
+        addSubview(screenShotImageView)
+        screenShotImageView.snp.makeConstraints {
+            $0.top.left.right.bottom.equalTo(self)
+        }
+
 
     }
     
