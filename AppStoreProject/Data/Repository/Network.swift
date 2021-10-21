@@ -11,6 +11,8 @@ import UIKit
 import RxCocoa
 
 final class Network {
+    
+    
     private let urlSession = URLSession.shared
     let decoder = JSONDecoder()
     
@@ -27,4 +29,26 @@ final class Network {
         }
     }
 
+}
+
+
+//언제 프로토콜을 사용하면 적절한지? 언제 싱글톤을 사용하면 적절하고 좋은지에 대한 고민..
+protocol fetchNetworkProtocol {
+    func fetchAppStoreSearchResult(searchKeyword: String)
+    
+}
+
+final class FetchNetwork : fetchNetworkProtocol {
+    func fetchAppStoreSearchResult(searchKeyword : String) {
+        
+        CommonNetwork.shared.fetchModel(url: URLSource.shared.itunesSearchUrl, searchKeyword: searchKeyword) { (result: Result<AppStoreSearchResultModel,APIError>) in
+            switch result {
+            case .success(let success):
+                debugPrint(success)
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        }
+        
+    }
 }

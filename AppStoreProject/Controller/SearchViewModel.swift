@@ -37,6 +37,12 @@ class SearchViewModel {
         }).disposed(by: disposeBag)
     }
     
+    func searchAppstoreSearch(searchKeyword : String) {
+        usecase.fetchAppStoreSearchResult(searchKeyword: "카카오")
+        
+        
+    }
+    
     
     
     

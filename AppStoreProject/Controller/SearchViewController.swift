@@ -29,8 +29,6 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        
-        
     }
     
     override func configureUI() {
@@ -55,23 +53,26 @@ final class SearchViewController: BaseViewController {
     }
     
     func bind() {
-        searchViewModel.results.asObservable().subscribe(onNext: {
-            result in
-            print("result : \(result)")
-        }).disposed(by: disposeBag)
         
+        searchViewModel.usecase.fetchAppStoreSearchResult(searchKeyword: "카카오")
         
-        selfView.searchViewController.searchBar.rx.text.debounce(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { text in
-            guard let text = text, !text.isEmpty else { return }
-            self.searchViewModel.searchQueryChanged(query: text)
-            
-        }).disposed(by: disposeBag)
-        
-        searchViewModel.results.subscribe(onNext: { _ in
-            DispatchQueue.main.async {
-                self.selfView.tableView.reloadData()
-            }
-        }).disposed(by: disposeBag)
+//        searchViewModel.results.asObservable().subscribe(onNext: {
+//            result in
+//            print("result : \(result)")
+//        }).disposed(by: disposeBag)
+//        
+//        
+//        selfView.searchViewController.searchBar.rx.text.debounce(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { text in
+//            guard let text = text, !text.isEmpty else { return }
+//            self.searchViewModel.searchQueryChanged(query: text)
+//            
+//        }).disposed(by: disposeBag)
+//        
+//        searchViewModel.results.subscribe(onNext: { _ in
+//            DispatchQueue.main.async {
+//                self.selfView.tableView.reloadData()
+//            }
+//        }).disposed(by: disposeBag)
         
         
     }
