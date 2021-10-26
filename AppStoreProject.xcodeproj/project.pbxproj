@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D26F34012720EE0E00D9C89E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26F34002720EE0E00D9C89E /* Alamofire */; };
+		D26F34032720EE9200D9C89E /* CommonNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F34022720EE9200D9C89E /* CommonNetwork.swift */; };
+		D2EB7EBE27215BFC005732A5 /* URLSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB7EBD27215BFC005732A5 /* URLSource.swift */; };
 		DA059D472717B70E00210EB5 /* SearchList+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */; };
 		DA059D492717C43800210EB5 /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */; };
 		DA059D4B2717C50800210EB5 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D4A2717C50800210EB5 /* SearchResultTableViewCell.swift */; };
@@ -39,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D26F34022720EE9200D9C89E /* CommonNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetwork.swift; sourceTree = "<group>"; };
+		D2EB7EBD27215BFC005732A5 /* URLSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSource.swift; sourceTree = "<group>"; };
 		DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchList+CollectionView.swift"; sourceTree = "<group>"; };
 		DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
 		DA059D4A2717C50800210EB5 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 				DAF8C8F5270BCE9F00982A62 /* RxSwift in Frameworks */,
 				DAF8C8F3270BCE9F00982A62 /* RxRelay in Frameworks */,
 				DAF8C8F1270BCE9F00982A62 /* RxCocoa in Frameworks */,
+				D26F34012720EE0E00D9C89E /* Alamofire in Frameworks */,
 				DAF8C8F8270BCEA700982A62 /* Then in Frameworks */,
 				DAF8C8FB270BCEB300982A62 /* SnapKit in Frameworks */,
 			);
@@ -83,6 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D26F33FE2720ECCA00D9C89E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D26F34022720EE9200D9C89E /* CommonNetwork.swift */,
+				D2EB7EBD27215BFC005732A5 /* URLSource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D2F204B42720E65900E98D13 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D26F33FE2720ECCA00D9C89E /* Network */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DAC1B525270D1B2B00E63C8C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +140,7 @@
 		DAE1BA87270ACCBA009444AC /* AppStoreProject */ = {
 			isa = PBXGroup;
 			children = (
+				D2F204B42720E65900E98D13 /* Common */,
 				DAE1BAA1270ACE15009444AC /* Data */,
 				DAE1BA9F270ACE01009444AC /* Coordinator */,
 				DAE1BA9E270ACDFC009444AC /* DI */,
@@ -233,6 +257,7 @@
 				DAF8C8F4270BCE9F00982A62 /* RxSwift */,
 				DAF8C8F7270BCEA700982A62 /* Then */,
 				DAF8C8FA270BCEB300982A62 /* SnapKit */,
+				D26F34002720EE0E00D9C89E /* Alamofire */,
 			);
 			productName = AppStoreProject;
 			productReference = DAE1BA85270ACCBA009444AC /* AppStoreProject.app */;
@@ -266,6 +291,7 @@
 				DAF8C8EF270BCE9F00982A62 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DAF8C8F6270BCEA700982A62 /* XCRemoteSwiftPackageReference "Then" */,
 				DAF8C8F9270BCEB300982A62 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D26F33FF2720EE0E00D9C89E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = DAE1BA86270ACCBA009444AC /* Products */;
 			projectDirPath = "";
@@ -293,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26F34032720EE9200D9C89E /* CommonNetwork.swift in Sources */,
 				DAC1B52D270D2D2D00E63C8C /* BaseTableViewCell.swift in Sources */,
 				DAE1BAAF270AD1F6009444AC /* Coordinator.swift in Sources */,
 				DAE1BAA5270ACF80009444AC /* SearchViewController.swift in Sources */,
@@ -314,6 +341,7 @@
 				DAE1BAAB270AD03F009444AC /* SearchView.swift in Sources */,
 				DAE1BA8B270ACCBA009444AC /* SceneDelegate.swift in Sources */,
 				DAA7DB8F2716ED75008738C1 /* SearchList+TableView.swift in Sources */,
+				D2EB7EBE27215BFC005732A5 /* URLSource.swift in Sources */,
 				DAF8C8EA270BCDB900982A62 /* AppStoreSearchResultModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8CGUUL97A;
+				DEVELOPMENT_TEAM = AJQ4X3A873;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStoreProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -483,7 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8CGUUL97A;
+				DEVELOPMENT_TEAM = AJQ4X3A873;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStoreProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -528,6 +556,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D26F33FF2720EE0E00D9C89E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		DAF8C8EF270BCE9F00982A62 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -555,6 +591,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D26F34002720EE0E00D9C89E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26F33FF2720EE0E00D9C89E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		DAF8C8F0270BCE9F00982A62 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DAF8C8EF270BCE9F00982A62 /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -11,9 +11,11 @@ import RxSwift
 final class AppStoreResultUseCase {
     
     private let network: Network
+    private let fetchNetwork: FetchNetwork
     
-    init(network: Network) {
+    init(network: Network, fetchNetwork: FetchNetwork) {
         self.network = network
+        self.fetchNetwork = fetchNetwork
     }
     
     func fetchSearchResult(keyword: String) -> Observable<AppStoreSearchResultModel> {
@@ -21,6 +23,10 @@ final class AppStoreResultUseCase {
         return network.fetchSearchResult(keyword: keyword)
     }
     
+    func fetchAppStoreSearchResult(searchKeyword : String) {
+        
+        return fetchNetwork.fetchAppStoreSearchResult(searchKeyword: searchKeyword)
+    }
     
     
 }
