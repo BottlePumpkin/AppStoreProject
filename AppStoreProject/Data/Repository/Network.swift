@@ -33,6 +33,27 @@ final class Network {
 
 
 final class FetchNetwork  {
+    
+    
+    func fetchAppStoreSearch(searchKeyword : String) {
+        let parameter = [
+            "term" : searchKeyword,
+            "country" : "kr",
+            "entity" : "software"
+        ]
+        
+        API.shared.get2(url: EndPoint.itunesSearchUrl, method: .get, parameter: parameter) {  (result: Result<AppStoreSearchResultModel,API.APIError>) in
+            switch result {
+            case .success(let success):
+                debugPrint(success)
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        }
+        
+    }
+    
+    
     func fetchAppStoreSearchResult(searchKeyword : String) {
         
         

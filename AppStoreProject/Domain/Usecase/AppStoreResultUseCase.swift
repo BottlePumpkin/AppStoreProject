@@ -28,5 +28,10 @@ final class AppStoreResultUseCase {
         return fetchNetwork.fetchAppStoreSearchResult(searchKeyword: searchKeyword)
     }
     
+    func fetchAppStoreSearch(searchKeyword: String) {
+        return fetchNetwork.fetchAppStoreSearch(searchKeyword: searchKeyword)
+    }
+
+    
     
 }

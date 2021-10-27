@@ -38,7 +38,7 @@ class SearchViewModel {
     }
     
     func searchAppstoreSearch(searchKeyword : String) {
-        usecase.fetchAppStoreSearchResult(searchKeyword: "카카오")
+        usecase.fetchAppStoreSearch(searchKeyword: "카카오")
         
         
     }
