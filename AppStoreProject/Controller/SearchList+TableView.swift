@@ -10,46 +10,34 @@ import UIKit
 extension SearchViewController : UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return searchViewModel.currentSearchResult.count
-        } else {
-            return 3
-        }
-        
-       
+    
+        return searchViewModel.numberOfSearhList
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-            cell.searchResultLabel.text = searchViewModel.currentSearchResult[indexPath.row].trackName
-            
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as! SearchResultTableViewCell
 
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell else { return  UITableViewCell() }
+            cell.collectionView.delegate = self
+            cell.collectionView.dataSource = self
+            cell.collectionView.tag = indexPath.row
+        
+        
+        
+        
             return cell
-            
-            
-        }
+  
         
 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 40
-        } else {
             return 400
-        }
     }
     
     

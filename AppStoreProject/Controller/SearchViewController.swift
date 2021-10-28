@@ -28,6 +28,7 @@ final class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         bind()
     }
     
@@ -54,26 +55,14 @@ final class SearchViewController: BaseViewController {
     
     func bind() {
         
-        searchViewModel.usecase.fetchAppStoreSearchResult(searchKeyword: "카카오")
+        searchViewModel.searchAppstoreSearch(searchKeyword: "카카오") {
+            DispatchQueue.main.async {
+                self.selfView.tableView.reloadData()
+            }
+            
+        }
         
-//        searchViewModel.results.asObservable().subscribe(onNext: {
-//            result in
-//            print("result : \(result)")
-//        }).disposed(by: disposeBag)
-//        
-//        
-//        selfView.searchViewController.searchBar.rx.text.debounce(.seconds(1), scheduler: MainScheduler.instance).subscribe(onNext: { text in
-//            guard let text = text, !text.isEmpty else { return }
-//            self.searchViewModel.searchQueryChanged(query: text)
-//            
-//        }).disposed(by: disposeBag)
-//        
-//        searchViewModel.results.subscribe(onNext: { _ in
-//            DispatchQueue.main.async {
-//                self.selfView.tableView.reloadData()
-//            }
-//        }).disposed(by: disposeBag)
-        
+    
         
     }
     
@@ -101,8 +90,6 @@ extension SearchViewController: UISearchResultsUpdating {
     
     func willDismissSearchController(_ searchController: UISearchController) {
         print("dismiss")
-//        selfView.tableView.isHidden = false
-//        selfView.collectionView.isHidden = true
     }
     
     

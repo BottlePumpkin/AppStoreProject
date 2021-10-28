@@ -12,7 +12,10 @@
 		D2A387062728FA0700AA4B6F /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A387052728FA0700AA4B6F /* HttpMethod.swift */; };
 		D2A387082728FAA400AA4B6F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A387072728FAA400AA4B6F /* Resource.swift */; };
 		D2A3870A2728FDD100AA4B6F /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A387092728FDD100AA4B6F /* URLSession+Extension.swift */; };
-		D2CD641D27292277000ACD77 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD641C27292277000ACD77 /* API.swift */; };
+		D2CD641D27292277000ACD77 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD641C27292277000ACD77 /* NetworkService.swift */; };
+		D2CD641F272933FB000ACD77 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD641E272933FB000ACD77 /* API.swift */; };
+		D2CD6421272A212B000ACD77 /* AppStoreResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD6420272A212B000ACD77 /* AppStoreResultEntity.swift */; };
+		D2CD6426272A4072000ACD77 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD6425272A4072000ACD77 /* UIImageView+Extension.swift */; };
 		D2EB7EBE27215BFC005732A5 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB7EBD27215BFC005732A5 /* EndPoint.swift */; };
 		DA059D472717B70E00210EB5 /* SearchList+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */; };
 		DA059D492717C43800210EB5 /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */; };
@@ -50,7 +53,10 @@
 		D2A387052728FA0700AA4B6F /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		D2A387072728FAA400AA4B6F /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		D2A387092728FDD100AA4B6F /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
-		D2CD641C27292277000ACD77 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D2CD641C27292277000ACD77 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D2CD641E272933FB000ACD77 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D2CD6420272A212B000ACD77 /* AppStoreResultEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStoreResultEntity.swift; path = AppStoreProject/Data/Repository/AppStoreResultEntity.swift; sourceTree = SOURCE_ROOT; };
+		D2CD6425272A4072000ACD77 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D2EB7EBD27215BFC005732A5 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		DA059D462717B70E00210EB5 /* SearchList+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchList+CollectionView.swift"; sourceTree = "<group>"; };
 		DA059D482717C43800210EB5 /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
@@ -112,14 +118,42 @@
 				D2A387052728FA0700AA4B6F /* HttpMethod.swift */,
 				D2A387072728FAA400AA4B6F /* Resource.swift */,
 				D2A387092728FDD100AA4B6F /* URLSession+Extension.swift */,
-				D2CD641C27292277000ACD77 /* API.swift */,
+				D2CD641C27292277000ACD77 /* NetworkService.swift */,
 			);
 			path = NetworkModule;
+			sourceTree = "<group>";
+		};
+		D2CD6422272A316D000ACD77 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DAE1BA93270ACCBC009444AC /* LaunchScreen.storyboard */,
+				DAE1BA91270ACCBC009444AC /* Assets.xcassets */,
+				DAE1BA96270ACCBC009444AC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D2CD6423272A31FD000ACD77 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DAE1BA88270ACCBA009444AC /* AppDelegate.swift */,
+				DAE1BA8A270ACCBA009444AC /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D2CD6424272A4065000ACD77 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2CD6425272A4072000ACD77 /* UIImageView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D2F204B42720E65900E98D13 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D2CD6424272A4065000ACD77 /* Extension */,
 				D2A387042728F9FD00AA4B6F /* NetworkModule */,
 				D26F33FE2720ECCA00D9C89E /* Network */,
 			);
@@ -129,6 +163,7 @@
 		DAC1B525270D1B2B00E63C8C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				D2CD6420272A212B000ACD77 /* AppStoreResultEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -160,6 +195,8 @@
 		DAE1BA87270ACCBA009444AC /* AppStoreProject */ = {
 			isa = PBXGroup;
 			children = (
+				D2CD6423272A31FD000ACD77 /* Application */,
+				D2CD6422272A316D000ACD77 /* Resources */,
 				D2F204B42720E65900E98D13 /* Common */,
 				DAE1BAA1270ACE15009444AC /* Data */,
 				DAE1BA9F270ACE01009444AC /* Coordinator */,
@@ -167,11 +204,6 @@
 				DAE1BA9D270ACDF3009444AC /* Domain */,
 				DAE1BAA0270ACE0F009444AC /* Controller */,
 				DAE1BA9C270ACDEA009444AC /* View */,
-				DAE1BA88270ACCBA009444AC /* AppDelegate.swift */,
-				DAE1BA8A270ACCBA009444AC /* SceneDelegate.swift */,
-				DAE1BA93270ACCBC009444AC /* LaunchScreen.storyboard */,
-				DAE1BA91270ACCBC009444AC /* Assets.xcassets */,
-				DAE1BA96270ACCBC009444AC /* Info.plist */,
 			);
 			path = AppStoreProject;
 			sourceTree = "<group>";
@@ -243,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				DAF8C8EB270BCE4200982A62 /* Network.swift */,
+				D2CD641E272933FB000ACD77 /* API.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -345,14 +378,16 @@
 				DAE1BAA5270ACF80009444AC /* SearchViewController.swift in Sources */,
 				DAF8C8E6270BCD6800982A62 /* AppStoreResultUseCase.swift in Sources */,
 				D2A3870A2728FDD100AA4B6F /* URLSession+Extension.swift in Sources */,
-				D2CD641D27292277000ACD77 /* API.swift in Sources */,
+				D2CD641D27292277000ACD77 /* NetworkService.swift in Sources */,
 				DAF8C8EC270BCE4200982A62 /* Network.swift in Sources */,
 				DAC1B52F270D400800E63C8C /* SearchResultCollectionViewCell.swift in Sources */,
 				DAE1BAAD270AD1ED009444AC /* MainCoordinator.swift in Sources */,
 				DAC1B52B270D2D1D00E63C8C /* SearchTableViewCell.swift in Sources */,
 				DAE1BAA7270ACFA7009444AC /* BaseViewController.swift in Sources */,
 				DAE1BAA9270AD037009444AC /* BaseView.swift in Sources */,
+				D2CD6421272A212B000ACD77 /* AppStoreResultEntity.swift in Sources */,
 				DA059D492717C43800210EB5 /* SearchResultHeaderView.swift in Sources */,
+				D2CD641F272933FB000ACD77 /* API.swift in Sources */,
 				DAA7DB8D2716ED5B008738C1 /* SearchDetailController.swift in Sources */,
 				D2A387082728FAA400AA4B6F /* Resource.swift in Sources */,
 				DA059D4B2717C50800210EB5 /* SearchResultTableViewCell.swift in Sources */,
@@ -360,6 +395,7 @@
 				DAC1B528270D1C6800E63C8C /* SearchViewModel.swift in Sources */,
 				DAE1BA89270ACCBA009444AC /* AppDelegate.swift in Sources */,
 				DA059D472717B70E00210EB5 /* SearchList+CollectionView.swift in Sources */,
+				D2CD6426272A4072000ACD77 /* UIImageView+Extension.swift in Sources */,
 				DAE1BAB1270AD289009444AC /* AppDependency.swift in Sources */,
 				DAE1BAAB270AD03F009444AC /* SearchView.swift in Sources */,
 				DAE1BA8B270ACCBA009444AC /* SceneDelegate.swift in Sources */,
@@ -509,7 +545,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AJQ4X3A873;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AppStoreProject/Info.plist;
+				INFOPLIST_FILE = AppStoreProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -537,7 +573,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AJQ4X3A873;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AppStoreProject/Info.plist;
+				INFOPLIST_FILE = AppStoreProject/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

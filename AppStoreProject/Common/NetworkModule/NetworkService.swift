@@ -7,7 +7,7 @@
 
 import Foundation
 
-class API {
+class NetworkService {
     
     enum APIError: LocalizedError {
         case urlNotSupport
@@ -25,7 +25,7 @@ class API {
     }
     
     
-    static let shared: API = API()
+    static let shared: NetworkService = NetworkService()
     
     
     private lazy var defaultSession = URLSession(configuration: .default)

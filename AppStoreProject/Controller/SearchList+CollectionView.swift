@@ -9,15 +9,18 @@ import UIKit
 
 
 
-extension SearchResultTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return searchViewModel.numberOfSearchScreenList(at: collectionView.tag)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as! SearchResultCollectionViewCell
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as? SearchResultCollectionViewCell else { return UICollectionViewCell() }
+
+        let screenShotImage = searchViewModel.searchImage(at: collectionView.tag, at: indexPath.item)
+        cell.setUpData(screenShotImage: screenShotImage)
+
         return cell
     }
     
@@ -25,7 +28,12 @@ extension SearchResultTableViewCell : UICollectionViewDelegate, UICollectionView
             UICollectionReusableView {
          switch kind {
             case UICollectionView.elementKindSectionHeader:
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchResultHeaderView", for: indexPath)
+             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchResultHeaderView", for: indexPath) as? SearchResultHeaderView else { return UICollectionReusableView() }
+            
+             let searchInfo = searchViewModel.searchInfo(at: collectionView.tag)
+             headerView.setUpData(searchInfo: searchInfo)
+             
+             
              return headerView
             default:
                 assert(false, "")
@@ -36,16 +44,16 @@ extension SearchResultTableViewCell : UICollectionViewDelegate, UICollectionView
 
 }
 
-extension SearchResultTableViewCell : UICollectionViewDelegateFlowLayout {
+extension SearchViewController : UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 100)
     }
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 3 - 40, height: 300)
+        return CGSize(width: view.frame.width / 3 - 40, height: 300)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

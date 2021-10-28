@@ -12,8 +12,6 @@ class SearchResultTableViewCell: UITableViewCell {
     lazy var layout = UICollectionViewFlowLayout()
 
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).then {
-        $0.delegate = self
-        $0.dataSource = self
         $0.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: "SearchResultCollectionViewCell")
         $0.register(SearchResultHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SearchResultHeaderView")
     }
@@ -47,7 +45,12 @@ class SearchResultTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+
+    
 
 }
+
+
 
 

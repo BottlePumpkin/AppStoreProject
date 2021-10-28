@@ -9,6 +9,29 @@ import UIKit
 
 class SearchResultHeaderView: UICollectionReusableView {
     
+    private var searchInfo: SearchResultModel? {
+        didSet {
+            guard let info = searchInfo else { return }
+            
+            if let title = info.trackName {
+                appTitleLabel.text = title
+            }
+            
+            if let subTitle = info.resultDescription {
+                appSubTitleLabel.text = subTitle
+            }
+            
+            if let logoImage = info.artworkUrl60 {
+                let url = URL(string: logoImage)
+                let data = try? Data(contentsOf: url!)
+                appLogoImageView.image = UIImage(data: data!)
+            }
+            
+            
+            
+        }
+        
+    }
     
     let appLogoImageView = UIImageView().then {
         $0.image = UIImage(named: "kakaotalk-icon")
@@ -17,14 +40,12 @@ class SearchResultHeaderView: UICollectionReusableView {
     }
     
     let appTitleLabel = UILabel().then {
-        $0.text = "카카오뱅크 - 같지만 다..."
         $0.numberOfLines = 1
         $0.font = UIFont.systemFont(ofSize: 20)
     }
     
     
     let appSubTitleLabel = UILabel().then {
-        $0.text = "공인인증서 필요없는 모바일은행"
         $0.numberOfLines = 1
         $0.font = UIFont.systemFont(ofSize: 12)
     }
@@ -73,6 +94,10 @@ class SearchResultHeaderView: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpData(searchInfo: SearchResultModel?){
+        self.searchInfo = searchInfo
     }
     
     

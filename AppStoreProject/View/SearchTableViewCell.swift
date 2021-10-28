@@ -10,12 +10,13 @@ import UIKit
 class SearchTableViewCell: BaseTableViewCell {
     
     
+    
+    
      let searchIconImageView = UIImageView().then {
         $0.image = UIImage(systemName: "magnifyingglass")
     }
      let searchResultLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 18)
-        $0.text = "카카오뱅크"
     }
     
 
@@ -51,4 +52,5 @@ class SearchTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+
 }
