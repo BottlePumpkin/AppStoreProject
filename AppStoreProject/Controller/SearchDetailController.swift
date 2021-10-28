@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import UIKit
+
+
+class SearchDetailController : BaseViewController {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
+    
+    override func configureUI() {
+        
+    }
+    
+}

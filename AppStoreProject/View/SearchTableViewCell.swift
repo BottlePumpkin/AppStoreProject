@@ -8,10 +8,7 @@
 import UIKit
 
 class SearchTableViewCell: BaseTableViewCell {
-    
-    
-    
-    
+
      let searchIconImageView = UIImageView().then {
         $0.image = UIImage(systemName: "magnifyingglass")
     }

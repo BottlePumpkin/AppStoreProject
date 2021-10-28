@@ -41,6 +41,11 @@ extension SearchViewController : UITableViewDelegate,UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = SearchDetailController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return "최근 검색어"
 //    }

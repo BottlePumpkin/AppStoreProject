@@ -17,14 +17,12 @@ class SearchResultHeaderView: UICollectionReusableView {
                 appTitleLabel.text = title
             }
             
-            if let subTitle = info.resultDescription {
+            if let subTitle = info.description {
                 appSubTitleLabel.text = subTitle
             }
             
             if let logoImage = info.artworkUrl60 {
-                let url = URL(string: logoImage)
-                let data = try? Data(contentsOf: url!)
-                appLogoImageView.image = UIImage(data: data!)
+                appLogoImageView.setCustomImage(logoImage)
             }
             
             
