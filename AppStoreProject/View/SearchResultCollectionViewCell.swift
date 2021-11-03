@@ -9,9 +9,18 @@ import UIKit
 
 class SearchResultCollectionViewCell: BaseCollectionViewCell {
     
+    private var screenShotImage: String? {
+        didSet {
+            guard let image = screenShotImage else { return }
+            screenShotImageView.setCustomImage(image)
+
+        }
+        
+    }
+    
+    
     let screenShotImageView = UIImageView().then {
         $0.image = UIImage(named: "kakaotalk-icon")
-    
     }
     
     
@@ -30,6 +39,11 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    func setUpData(screenShotImage: String){
+        self.screenShotImage = screenShotImage
+    }
+
     
     
 }

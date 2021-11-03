@@ -6,17 +6,40 @@
 //
 
 import Foundation
-import Alamofire
+
+
+enum HttpMethods {
+    case get
+    case post
+    case put
+    case patch
+    case delete
+    
+}
+
+extension HttpMethods {
+    var method : String {
+        switch self {
+        
+        case .get:
+           return "GET"
+        case .post:
+            return "POST"
+        case .put:
+            return "PUT"
+        case .patch:
+            return "PATHCH"
+        case .delete:
+            return "DELETE"
+        }
+    }
+    
+    
+}
 
 
 protocol CommonNetworkProtocol {
-    func fetchModel<T:Decodable>(url : String,searchKeyword: String,completion : @escaping(Result<T,APIError>) -> Void)
-    
-    //왜 이렇게 하면 안될까?
-    //get 일떄는 parameter => encoding queryString ,
-    //post 일때는 parameter => encoding json.default로 이건 너무 어렵나?
-    
-//    func fetchModel<T:Decodable,Parameters: Encodable>(url: String,searchKeyword: String,parameters: Parameters,completion : @escaping(Result<T,APIError>) -> Void)
+    func fetchModel<T:Decodable>(url : String,method : HttpMethods,parameter : [String : String],completion : @escaping(Result<T,APIError>) -> Void)
 }
 
 public enum Result<Success, Failure> where Failure : Error {
@@ -31,6 +54,9 @@ enum APIError: Error {
     case data
     case decodingJSON
 }
+
+
+
 final class CommonNetwork : CommonNetworkProtocol {
     
     static let shared = CommonNetwork()
@@ -38,13 +64,31 @@ final class CommonNetwork : CommonNetworkProtocol {
     private let urlSession = URLSession.shared
     let decoder = JSONDecoder()
     
-    func fetchModel<T>(url : String,searchKeyword: String,completion: @escaping (Result<T, APIError>) -> Void) where T : Decodable {
-        var urlComponents = URLComponents(string: url)
-        urlComponents?.query = "term=\(searchKeyword)&country=kr&entity=software"
+    
+    func parameterToQueryString(parameters : [String : String]) -> String {
+        
+        var queryString = "?"
 
-        let url = urlComponents?.url ?? URL(fileURLWithPath: "")
-       
-       URLSession.shared.dataTask(with: url) { data, response, error in
+       parameters.forEach {
+           queryString = queryString +  "\($0.key)=\($0.value)&"
+       }
+        
+        queryString.remove(at: queryString.index(before: queryString.endIndex))
+        
+        return queryString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    }
+    
+    
+    func fetchModel<T>(url : String,method: HttpMethods,parameter : [String : String],completion: @escaping (Result<T, APIError>) -> Void) where T : Decodable {
+        
+        guard let url = URL(string: url + parameterToQueryString(parameters: parameter)
+        ) else { return }
+
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.method
+        
+       URLSession.shared.dataTask(with: urlRequest) { data, response, error in
 
            guard let data = data else {
                return completion(.failure(.data))
@@ -60,7 +104,7 @@ final class CommonNetwork : CommonNetworkProtocol {
    }
 
     
-//    AF.request(<#T##URLConvertible#>, method: <#T##HTTPMethod#>, parameters: <#T##Parameters?#>, encoder: <#T##ParameterEncoder#>, headers: <#T##HTTPHeaders?#>, interceptor: <#T##RequestInterceptor?#>, requestModifier: <#T##RequestModifier?#>)
+
     
 }
  

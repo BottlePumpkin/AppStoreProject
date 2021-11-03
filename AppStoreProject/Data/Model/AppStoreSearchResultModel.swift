@@ -56,6 +56,7 @@ struct SearchResultModel: Decodable {
     let primaryGenreID: Int?
     let currency: String?
     let resultDescription: String?
+    let description: String?
     let artistID: Int?
     let artistName: String?
     let genres: [String]?
@@ -84,6 +85,7 @@ struct SearchResultModel: Decodable {
         case resultDescription
         case artistID
         case artistName, genres, price, version, wrapperType, userRatingCount
+        case description
         
     }
     

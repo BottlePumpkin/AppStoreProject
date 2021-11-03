@@ -12,36 +12,52 @@ import RxCocoa
 
 
 class SearchViewModel {
-    
-    var loading: BehaviorSubject<Bool> = .init(value: false)
-    var errorMessage: BehaviorSubject<String?> = .init(value: nil)
-    var results: BehaviorSubject<AppStoreSearchResultModel> = .init(value: AppStoreSearchResultModel(resultCount: 0, results: []))
-    var currentSearchResult: [SearchResultModel] = []
-    
+
     var disposeBag = DisposeBag()
     
     
+    var searchResults : [SearchResultModel] = []
+    var loading = false
+    
     let usecase: AppStoreResultUseCase
+    
+    
+    var numberOfSearhList : Int {
+        return searchResults.count
+    }
+    
+
+    
     
     init(usecase: AppStoreResultUseCase) {
         self.usecase = usecase
     }
     
+
     
-    func searchQueryChanged(query : String) {
-        loading.onNext(true)
-        usecase.fetchSearchResult(keyword: query).subscribe(onNext: { results in
-            self.loading.onNext(false)
-            self.results.onNext(results)
-            self.currentSearchResult = results.results ?? []
-        }).disposed(by: disposeBag)
-    }
-    
-    func searchAppstoreSearch(searchKeyword : String) {
-        usecase.fetchAppStoreSearchResult(searchKeyword: "카카오")
+    func searchAppstoreSearch(searchKeyword : String,completion: @escaping() -> ()) {
         
+        usecase.call(searchKeyword: searchKeyword) { [unowned self] results  in
+            self.searchResults = results.results ?? []
+            completion()
+        }
         
     }
+    
+    func searchInfo(at tag: Int) -> SearchResultModel {
+        return searchResults[tag]
+    }
+    
+    
+    func numberOfSearchScreenList(at tag: Int) -> Int {
+        return searchResults[tag].screenshotUrls?.count ?? 0
+    }
+    
+    func searchImage(at tag: Int, at index : Int) -> String {
+        
+        return searchResults[tag].screenshotUrls?[index] ?? ""
+    }
+    
     
     
     

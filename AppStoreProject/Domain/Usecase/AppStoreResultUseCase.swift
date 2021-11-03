@@ -11,11 +11,11 @@ import RxSwift
 final class AppStoreResultUseCase {
     
     private let network: Network
-    private let fetchNetwork: FetchNetwork
+    private let api: API
     
-    init(network: Network, fetchNetwork: FetchNetwork) {
+    init(network: Network, api: API) {
         self.network = network
-        self.fetchNetwork = fetchNetwork
+        self.api = api
     }
     
     func fetchSearchResult(keyword: String) -> Observable<AppStoreSearchResultModel> {
@@ -23,10 +23,15 @@ final class AppStoreResultUseCase {
         return network.fetchSearchResult(keyword: keyword)
     }
     
-    func fetchAppStoreSearchResult(searchKeyword : String) {
+    
+    
+    func call(searchKeyword: String,completion: @escaping(AppStoreSearchResultModel) -> Void) {
+        return api.fetchAppStoreSearch(searchKeyword: searchKeyword) { result in
+            completion(result)
+        }
         
-        return fetchNetwork.fetchAppStoreSearchResult(searchKeyword: searchKeyword)
     }
+    
     
     
 }

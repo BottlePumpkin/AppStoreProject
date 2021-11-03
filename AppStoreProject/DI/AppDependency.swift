@@ -18,8 +18,8 @@ extension AppDependency {
     
     static func resolve() -> AppDependency {
         let network = Network()
-        let fetchNetwork = FetchNetwork()
-        let useCase = AppStoreResultUseCase(network: network, fetchNetwork: fetchNetwork)
+        let api = API()
+        let useCase = AppStoreResultUseCase(network: network, api: api)
         let viewModel = SearchViewModel(usecase: useCase)
         let searchController = SearchViewController(searchViewModel: viewModel)
         
