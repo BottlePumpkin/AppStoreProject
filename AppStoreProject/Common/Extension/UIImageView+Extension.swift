@@ -20,6 +20,8 @@ extension UIImageView {
                 return
             }
             
+            
+            //경로 정해주기
             guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return }
             
             
@@ -29,8 +31,11 @@ extension UIImageView {
             var filePath = URL(fileURLWithPath: path)
             filePath.appendPathComponent(path+cachedKey)
             
-            
-            let data = try? Data(contentsOf: URL(string: url)!)
+            guard let urlString = URL(string: url) else {
+                return
+            }
+
+            let data = try? Data(contentsOf: urlString)
           
             
             if !FileManager.default.fileExists(atPath: filePath.path) {

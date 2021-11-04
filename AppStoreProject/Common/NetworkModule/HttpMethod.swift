@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 
-enum HttpMethod<Body> {
+public enum HttpMethod {
     case get
-    case post(Body)
-    case put(Body)
-    case patch(Body)
-    case delete(Body)
+    case post
+    case put
+    case patch
+    case delete
 }
 
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+final class NetworkService {
     
     enum APIError: LocalizedError {
         case urlNotSupport
@@ -34,23 +34,7 @@ class NetworkService {
         
     }
     
-    
-    func get1<T>(url : String,method: HttpMethods,completion: @escaping (Result<T, APIError>) -> Void) where T : Decodable {
-        
-        guard let url = URL(string: url
-        ) else {
-            completion(.failure(.urlNotSupport))
-            return }
-        
-        let resource = Resource<T>(url: url)
-        defaultSession.load(resource) { data, _ in
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-            completion(.success(data))
-        }
-   }
+
     
     // query string 있을때
     
@@ -75,7 +59,7 @@ class NetworkService {
             return }
         
         
-        let resource = Resource<T>(url: url,method: .post(parameter))
+        let resource = Resource<T>(url: url,method: .post,parameter: parameter)
         
         defaultSession.load(resource) { data, _ in
             guard let data = data else {
