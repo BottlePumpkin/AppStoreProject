@@ -21,8 +21,9 @@ class SearchResultHeaderView: UICollectionReusableView {
                 appSubTitleLabel.text = subTitle
             }
             
-            if let logoImage = info.artworkUrl60 {
-                appLogoImageView.setCustomImage(logoImage)
+            if let logoImage = info.artworkUrl60,
+               let path = info.trackName {
+                appLogoImageView.setImage(from: logoImage, path: path)
             }
             
             
