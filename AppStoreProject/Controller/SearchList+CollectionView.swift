@@ -19,6 +19,9 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCollectionViewCell", for: indexPath) as? SearchResultCollectionViewCell else { return UICollectionViewCell() }
 
         let screenShotImage = searchViewModel.searchImage(at: collectionView.tag, at: indexPath.item)
+        let trackName = searchViewModel.searchResults[indexPath.row].trackName
+        
+        
         cell.setUpData(screenShotImage: screenShotImage)
 
         return cell

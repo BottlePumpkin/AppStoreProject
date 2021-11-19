@@ -12,7 +12,7 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
     private var screenShotImage: String? {
         didSet {
             guard let image = screenShotImage else { return }
-            screenShotImageView.setCustomImage(image)
+            screenShotImageView.setImage(from: image, path: "")
 
         }
         
@@ -20,7 +20,7 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
     
     
     let screenShotImageView = UIImageView().then {
-        $0.image = UIImage(named: "kakaotalk-icon")
+        $0.clipsToBounds = true
     }
     
     
@@ -42,6 +42,7 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
 
     func setUpData(screenShotImage: String){
         self.screenShotImage = screenShotImage
+        
     }
 
     

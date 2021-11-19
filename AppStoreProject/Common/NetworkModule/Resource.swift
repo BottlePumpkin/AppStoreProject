@@ -22,17 +22,7 @@ struct Resource<T> {
 extension Resource where T: Decodable {
     
     
-    
-    //1
-    init(url: URL) {
-        self.urlRequest = URLRequest(url: url)
-        self.parse = {
-            data in
-            try? JSONDecoder().decode(T.self, from: data)
-        }
-    }
-    
-    //2
+ 
     init(url: String, parameters _parameters : [String : String]) {
         var component = URLComponents(string: url)
         var parameters = [URLQueryItem]()
@@ -61,14 +51,14 @@ extension Resource where T: Decodable {
     
     //3
     
-    init<Body: Encodable>(url : URL, method: HttpMethod<Body>) {
+    init<U: Codable>(url : URL, method: HttpMethod,parameter : [String : U]) {
         self.urlRequest = URLRequest(url: url)
         self.urlRequest.httpMethod = method.method
         
         switch method {
             
-        case .post(let body),.put(let body),.patch(let body),.delete(let body):
-            self.urlRequest.httpBody = try? JSONEncoder().encode(body)
+        case .post,.put,.patch,.delete:
+            self.urlRequest.httpBody = try? JSONEncoder().encode(parameter)
             self.urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             self.urlRequest.addValue("application/json", forHTTPHeaderField: "Accpet")
         default: break
