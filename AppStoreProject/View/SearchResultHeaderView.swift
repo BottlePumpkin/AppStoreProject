@@ -23,7 +23,7 @@ class SearchResultHeaderView: UICollectionReusableView {
             
             if let logoImage = info.artworkUrl60,
                let path = info.trackName {
-                appLogoImageView.setImage(from: logoImage, path: path)
+                appLogoImageView.setImage(fromUrlString: logoImage)
             }
             
             

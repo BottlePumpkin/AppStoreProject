@@ -12,8 +12,7 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
     private var screenShotImage: String? {
         didSet {
             guard let image = screenShotImage else { return }
-            screenShotImageView.setImage(from: image, path: "")
-
+            
         }
         
     }
@@ -21,6 +20,7 @@ class SearchResultCollectionViewCell: BaseCollectionViewCell {
     
     let screenShotImageView = UIImageView().then {
         $0.clipsToBounds = true
+        
     }
     
     
