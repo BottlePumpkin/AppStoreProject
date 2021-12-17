@@ -1,5 +1,6 @@
 import UIKit
 import Kingfisher
+import Accelerate
 
 extension UIImageView {
     
@@ -10,12 +11,27 @@ extension UIImageView {
             return
         }
         
-        print(url)
+
+
         
         DispatchQueue.global().async { [weak self] in
             
             DispatchQueue.main.async {
-                self?.image = ImageCacheManager().imageMemoryCacheStorage(url: url)
+                //저장 한 거 있는지?
+                if FileManager().checkDocument(savePath: url) {
+                    //문서에서 가져와라
+                    
+                    self?.image = FileManager().getDocument(savePath: url)
+                } else {
+                    //저장한거 없으면 저장해라!
+                    FileManager().saveDocument(data: (self?.image?.pngData())!, savePath: url) { error in
+                        print(error)
+                    }
+                    
+                    self?.image = ImageCacheManager().imageMemoryCacheStorage(url: url)
+                    
+                }
+            
             }
             
         }

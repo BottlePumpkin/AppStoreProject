@@ -11,7 +11,7 @@ import UIKit
 
 protocol ImageCacheManagerDelegate {
     func cacheStorages()
-    func imageDiskCasheStorage()
+    func imageDiskCasheStorage(data: Data, savePath: NSString)
     func imageMemoryCacheStorage(url : String) -> UIImage
 }
 
@@ -30,14 +30,16 @@ class ImageCacheManager {
 extension ImageCacheManager : ImageCacheManagerDelegate {
     
     
+    func imageDiskCasheStorage(data: Data, savePath: NSString) {
+        
+
+    }
+
+    
     func cacheStorages() {
         
     }
     
-    func imageDiskCasheStorage() {
-//        FileManager().saveDocument(data: <#T##Data#>, savePath: <#T##String#>, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
-//        
-    }
     
     func imageMemoryCacheStorage(url : String) -> UIImage {
         let cachedKey = NSString(string: url).lastPathComponent
