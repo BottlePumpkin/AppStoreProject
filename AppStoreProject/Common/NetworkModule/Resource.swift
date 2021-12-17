@@ -5,9 +5,6 @@
 //  Created by 박병호 on 2021/10/27.
 //
 //
-//별도의 관리 포인트 없이 바로 request를 실행하게 되면, 개별 API 별로 return type을 지정해야하는 문제가 생깁니다.
-//그런 문제를 해결하기 위해서 Encodable, Decodable type을 Generic하게 입력 받는 resource라는 관리포인트를 생성하는 것이 좋습니다.
-//각 request type에 따른 URLRequest Setting을 하도록 합니다.
 
 
 import Foundation
