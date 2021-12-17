@@ -11,6 +11,7 @@ import UIKit
 
 extension FileManager {
     
+    //확인
     func checkDocument(savePath:String) -> Bool{
         guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return false}
         
@@ -19,7 +20,7 @@ extension FileManager {
         return FileManager().fileExists(atPath: filePath.path)
     }
     
-
+    //저장
     func saveDocument(data:Data, savePath:String, completion: ((Error?) -> Void)? = nil) {
         guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return }
         
@@ -31,7 +32,7 @@ extension FileManager {
     
 
     }
-    
+    //불러오기
     func getDocument(savePath:String) -> UIImage {
         let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first ?? ""
         var filePath = URL(fileURLWithPath: path)

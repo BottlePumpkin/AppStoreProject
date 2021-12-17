@@ -28,6 +28,7 @@ extension UIImageView {
                         print(error)
                     }
                     
+                    //NSCache에 저장
                     self?.image = ImageCacheManager().imageMemoryCacheStorage(url: url)
                     
                 }
